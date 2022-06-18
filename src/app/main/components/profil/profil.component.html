@@ -1,0 +1,97 @@
+<div class="pb-2 pt-2 mb-4 border-bottom">
+  <p class="h2 mb-0"><i class="fa fa-user fa-fw"></i> {{ 'PROFILE.PROFILE' | translate }}</p>
+</div>
+
+<ul class="nav nav-pills nav-justified mb-4" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-email-tab" data-toggle="pill" href="#pills-email" role="tab"
+      aria-controls="pills-email" aria-selected="false">{{ 'PROFILE.CHANGE_ADRESS_EMAIL' | translate }}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-password-tab" data-toggle="pill" href="#pills-password" role="tab"
+      aria-controls="pills-password" aria-selected="true">{{ 'PROFILE.ENTER_ACTUEL_PASSWORD' | translate }}</a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+
+  <div class="tab-pane fade show active" id="pills-email" role="tabpanel" aria-labelledby="pills-email-tab">
+
+    <form class="form-horizontal" #form="ngForm">
+      <div class="form-group col-sm-12 p-0">
+        <span class="border-lable-flt">
+          <label class="control-label">{{ 'PROFILE.EMAIL' | translate }} :</label>
+        </span>
+        <input type="text" class="form-control" name="email" [(ngModel)]="email" required email>
+      </div>
+
+      <div class="fform-group col-sm-12 p-0">
+        <span class="border-lable-flt">
+          <label class="control-label">{{ 'PROFILE.ENTER_ACTUEL_PASSWORD' | translate }} :</label>
+        </span>
+        <input type="password" class="form-control" name="curentPassword" [(ngModel)]="curentPassword" required>
+      </div>
+
+      <div class="form-group col-sm-12 p-0 text-right">
+        <button [disabled]="!form.valid" type="submit" class="btn btn-success mr-1 pull-right"
+          (click)="changeEmail(form.value)">
+          {{ 'GLOBAL.SAVE' | translate }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+
+  <div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="pills-password-tab">
+
+    <form class="form-horizontal" #form2="ngForm">
+
+      <div class="form-group col-sm-12 p-0">
+        <span class="border-lable-flt">
+          <label class="control-label">{{ 'PROFILE.ENTER_ACTUEL_PASSWORD' | translate }} :</label>
+        </span>
+        <input type="password" class="form-control" name="currentPassword" [(ngModel)]="currentPassword" required>
+      </div>
+
+      <div class="form-group col-sm-12 p-0">
+        <span class="border-lable-flt">
+          <label class="control-label">{{ 'PROFILE.ENTER_NEW_PASSWORD' | translate }} :</label>
+        </span>
+        <input type="password" class="form-control" name="newPassword" [(ngModel)]="newPassword"
+          #newPasswordRef="ngModel" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+          required>
+        <div class="md-errors-spacer col-sm-10" style="color:red;margin-top:20px;"
+          [hidden]="newPasswordRef.valid || newPasswordRef.untouched">
+          <div class="md-char-counter" *ngIf="newPasswordRef.errors && newPasswordRef.errors.pattern">
+            {{ 'USER.PASSWORD_INVALIDE' | translate }}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12 p-0">
+        <span class="border-lable-flt">
+          <label class="control-label">{{ 'PROFILE.CONFIRM_NEW_PASSWORD' | translate }} :</label>
+        </span>
+        <input type="password" class="form-control" name="confirmeNewPassword" [(ngModel)]="confirmeNewPassword"
+          #confirmeNewPasswordRef="ngModel" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+          required>
+
+        <div class="md-errors-spacer col-sm-10" style="color:red;margin-top:20px;">
+          <div class="md-char-counter" style="color:red;margin-top:20px;"
+            *ngIf="confirmeNewPassword !== newPassword && confirmeNewPassword?.length>0">
+            {{ 'USER.CONFIRMATION_ERROR' | translate }}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12 p-0 text-right">
+        <button [disabled]="!form2.valid || (newPasswordRef.value !== confirmeNewPasswordRef.value)" type="submit"
+          class="btn btn-success pull-right" (click)="changePassword(form2.value)">
+          {{ 'PROFILE.SAVE' | translate }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>

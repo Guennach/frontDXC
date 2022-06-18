@@ -1,0 +1,22 @@
+<div class="bg"></div>
+<div class="container">
+    <div class="left">
+        <img src="/assets/images/logo.png" />
+        <p class="title">
+            {{ 'GLOBAL.TITLE' | translate }}
+        </p>
+    </div>
+    <div class="vertical"></div>
+    <div class="right">
+        <div class="formBox">
+            <h1>{{ 'LOGIN.CONNEXION' | translate }}</h1>
+            <form>
+                <p>{{ 'LOGIN.USERNAME' | translate }}</p>
+                <input type="text" id="userName" name="userName" #userName />
+                <p>{{ 'LOGIN.PASSWORD' | translate }}</p>
+                <input type="Password" id="password" name="password" #password />
+                <button type="submit" (click)="login(userName.value, password.value)" class="btn-submit">{{ 'LOGIN.CONNECT' | translate }}</button>
+            </form>
+        </div>
+    </div>
+</div>

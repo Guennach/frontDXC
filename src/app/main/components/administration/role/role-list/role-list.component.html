@@ -1,0 +1,36 @@
+<div class="pb-2 pt-2 mb-4 border-bottom">
+    <p class="h2 mb-0"><i class="fa fa-lock"></i> {{ 'ROLE.TITLE' | translate }}</p>
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr [dynamicTableHead]="tableConfig">
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of rolesList">
+                    <td>{{role.label}}</td>
+                    <td>
+                        <span *ngFor="let acces of role.acces">
+                {{acces.label}}<br>
+              </span>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/roles/edit', role.id]">
+                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modal">
+                            <span class="fa fa-trash-o" aria-hidden="true" (click)="delete(role)"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <a class="add-element-link" routerLink="/roles/edit" routerLinkActive="active">
+            <span class="glyphicon glyphicon-plus-sign"></span> {{'ROLE.ADD' | translate}}
+        </a>
+    </div>
+</div>

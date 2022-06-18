@@ -1,0 +1,30 @@
+<div class="pb-2 pt-2 mb-4 border-bottom">
+    <p class="h2 mb-0"><i class="fa fa-cog"></i> {{ 'SETTINGS.TITLE' | translate }}</p>
+</div>
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr [dynamicTableHead]="tableConfig">
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let setting of settingList; let index = index;">
+                    <td>{{ setting.label}}</td>
+                    <td>{{ setting.labelType}}</td>
+                    <td>{{ setting.value}}</td>
+                    <td>
+                        <a [routerLink]="['/settings/edit', setting.id]">
+                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span>
+                        </a>
+                        <a [routerLink]="['/settings/detail', setting.id]">
+                            <span class="fa fa-eye" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

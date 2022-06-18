@@ -1,0 +1,123 @@
+<div class="pb-2 pt-2 mb-4 border-bottom">
+    <p class="h2 mb-0"><i class="fa fas fa-users"></i> {{ (user?.id ? 'USER.MODIFICATION' : 'USER.ADD') | translate }}</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12 p-0">
+        <form class="form-horizontal" #form="ngForm">
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label class="control-label" for="label-lio">{{ 'USER.AUTHENTIFICATION_TYPE' | translate }} :
+                    </label>
+                </span>
+                <div class="form-control">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="applicatif" name="ldapAuthentication" value="false" [value]="false" required [(ngModel)]="user.ldapAuthentication" checked>
+                        <label class="form-check-label" for="applicatif">{{ 'USER.APPLICATION' | translate
+                            }}</label>
+                    </div>
+                    <!-- <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="ldap" name="ldapAuthentication" value="true" [value]="true" required [(ngModel)]="user.ldapAuthentication">
+                        <label class="form-check-label" for="ldap">{{ 'USER.LDAP' | translate }}</label>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label class="control-label" for="label-lio">{{ 'USER.LASTNAME' | translate }} :
+                    </label>
+                </span>
+                <input type="text" class="form-control" name="lastName" id="label-login" placeholder="" required autofocus [(ngModel)]="user.lastName" pattern="^(\S+.*)+$" required ngModel>
+
+            </div>
+
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label class="control-label" for="label-name">{{ 'USER.FIRSTNAME' | translate }} : </label>
+                </span>
+                <input type="text" class="form-control" name="firstName" id="label-login" placeholder=" " required autofocus [(ngModel)]="user.firstName" pattern="^(\S+.*)+$" required ngModel>
+
+            </div>
+            <div class="form-group col-sm-12">
+                <span class="border-lable-flt">
+                    <label class="control-label ">{{ 'USER.EMAIL' | translate }} : </label>
+                </span>
+                <input type="text" id="email" #email="ngModel" class="form-control" class="form-control" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$" [(ngModel)]="user.email" ngModel>
+                <div class="md-char-counter" style="color:red;margin-top:20px;" [hidden]="email.valid || email.untouched" *ngIf="email.errors && email.errors.pattern">
+                    {{ 'USER.EMAIL_INVALIDE' | translate }}
+                </div>
+            </div>
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label for="label-name">{{ 'USER.LOGIN' | translate }} : </label>
+                </span>
+                <input type="text" class="form-control" name="login" id="label-login" required autofocus [(ngModel)]="user.login" pattern="^(\S+.*)+$" required ngModel>
+
+            </div>
+
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label class="control-label" for="label-lio">{{ 'USER.ROLE' | translate }} :
+                    </label>
+                </span>
+                <select class="form-control" name="role" multiple [(ngModel)]="user.roles" #roles required ngModel data-max-options="3" [compareWith]="compareRoles">
+                    <option *ngFor="let role of rolesList" [ngValue]="role">{{role.label}}</option>
+                </select>
+            </div>
+
+            <input type="hidden" class="form-control" name="pwd" [(ngModel)]="user.pwd" ngModel>
+            <div class="form-group col-sm-12" *ngIf="!user.ldapAuthentication">
+                <span class="border-lable-flt">
+                    <label class="control-label ">{{ 'USER.PASSWORD' | translate }} :</label>
+                </span>
+                <input id="pwd" #pwd="ngModel" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password" class="form-control" name="pwd" [(ngModel)]="user.nouveauMotPasse" ngModel>
+                <div class="md-char-counter" style="color:red;margin-top:20px;" [hidden]="pwd.valid || pwd.untouched" *ngIf="pwd.errors && pwd.errors.pattern">
+                    {{ 'USER.PASSWORD_INVALIDE' | translate }}
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12" *ngIf="!user.ldapAuthentication">
+                <span class="border-lable-flt">
+                    <input id="confirmationMotPasse" #confirmationMotPasse="ngModel"
+                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password"
+                        class="form-control" name="confirmationMotPasse" [(ngModel)]="user.confirmationMotPasse"
+                        ngModel>
+                    <label class="control-label ">{{ 'USER.CONFIRMATION_PASSWORD' | translate }}:</label>
+
+                </span>
+
+                <div class="col-sm-12">
+                    <div class="md-char-counter" style="color:red;margin-top:20px;" *ngIf="user.nouveauMotPasse !== user.confirmationMotPasse && user?.confirmationMotPasse?.length>0">
+                        {{ 'USER.CONFIRMATION_ERROR' | translate }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label class="control-label" for="label-lio">{{ 'USER.STATUT' | translate }} :
+                    </label>
+                </span>
+                <div class="form-control">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="active" name="active" value="true" [value]="true" [(ngModel)]="user.active" required ngModel>
+                        <label class="form-check-label" for="active">{{ 'USER.ACTIVE' | translate }}</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="desactive" name="active" value="false" [value]="false" [(ngModel)]="user.active" required ngModel>
+                        <label class="form-check-label" for="desactive">{{ 'USER.DESACTIVE' | translate
+                            }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 text-right">
+                <button type="button" class="btn btn-danger mr-1" (click)="cancel()">
+                    {{ 'GLOBAL.CANCEL' | translate }}</button>
+                <button type="submit" (click)="save()" class="btn btn-success" [disabled]="!form.valid || roles?.length==0 || !checkPassWordValidity()">{{ 'GLOBAL.SAVE' |
+                    translate }}</button>
+
+            </div>
+        </form>
+    </div>
+</div>

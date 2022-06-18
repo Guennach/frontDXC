@@ -1,0 +1,16 @@
+<div [attr.dir]="isArabNavigation ? 'rtl' : 'ltr'">
+    <div class="modal-header">
+      <h4 class="modal-title mb-0 h4 font-weight-bold" id="myModalLabel">{{ 'MENU.DECONNEXION' | translate}}</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        {{'INACTIVITY.EXPIRATION' | translate}} {{ count }} {{'INACTIVITY.SECONDS' | translate}}
+    
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" [style.width.%]="count * 1.6666"></div>
+        </div>
+      </div>
+  </div>
+  

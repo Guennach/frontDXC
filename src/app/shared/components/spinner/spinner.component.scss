@@ -1,0 +1,16 @@
+#spinner {
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.spinner-border {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    color: white;
+    width: 120px;
+    height: 120px;
+}

@@ -1,0 +1,81 @@
+body {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+#mini-logo {
+    top: -3px;
+    position: relative;
+    width: 100px;
+}
+
+.side-navbar a {
+    color: #fff !important;
+}
+
+.side-navbar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: #100901;
+    transition: 0.5s;
+}
+
+#sidebar .active,
+#sidebar .nav-link:hover {
+    background-color: #3c0772 !important;
+}
+
+.navbar {
+    background: #5f1fa0 !important;
+}
+
+.my-container {
+    transition: 0.4s;
+}
+
+.active-nav {
+    margin-left: 0;
+}
+
+/* for main section */
+.active-cont {
+    margin-left: 250px;
+}
+
+#menu-btn {
+    background-color: #3c0772;
+    color: #fff;
+    margin-left: -40px;
+}
+
+.my-container input {
+    border-radius: 2rem;
+    padding: 2px 20px;
+}
+
+.side-navbar .sticky-sidebar-header {
+    background: #005086;
+}
+
+.side-navbar ul {
+    padding-top: 4px;
+}
+
+.side-navbar ul p {
+    padding: 10px;
+    font-size: 15px;
+    display: block;
+    color: #fff;
+}
+
+.side-navbar ul li a {
+    padding: 8px;
+    font-size: 1.1em;
+    display: block;
+}
+
+.text-responsive {
+    font-size: clamp(16px, 5vw, 34px);
+}

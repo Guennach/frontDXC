@@ -1,0 +1,169 @@
+{
+    "GLOBAL": {
+        "SAVE": "Enregistrer",
+        "EXIT_PAGE": "Quitter la page",
+        "CANCEL": "Annuler",
+        "SEARCH": "Rechercher",
+        "NO_RECORD_FOUND": "Aucun élément trouvé",
+        "CONFIRMATION": "Confirmation",
+        "DELETE_MESSAGE": "Êtes-vous sûr de bien vouloir deletedr cet enregistrement (",
+        "VALIDATE": "Valider",
+        "ADDING_DATE": "Date de création ",
+        "MODIFING_DATE": "Date de modification",
+        "ADD_BY": "Ajout par",
+        "MODIFIYING_BY": "Modification par",
+        "ACTIONS": "Actions",
+        "ELEMENTS_NUMBER": "Nombre d'élément",
+        "NO_ELEMENT": "Aucun élément trouvé",
+        "ADD": "Ajout",
+        "MODIFICATION": "Modification",
+        "CONSULTATION": "Consultation",
+        "DELETION": "Suppression",
+        "LOADING": "Chargement en cours ...",
+        "UNAUTHORIZED": "Action non autorisée",
+        "MESSAGE_RESTORATION": "Êtes-vous sûr de bien vouloir restaurer cet enregistrement ?",
+        "MESSAGE_CLEAN_FIELDS": "Êtes-vous sûr de bien vouloir vider les champs ?",
+        "MESSAGE_ANNULATION": "Êtes-vous sûr de bien vouloir quitter la page ?",
+        "MODIFICATION_SUCCEED": "Modification effectuée avec succès",
+        "INCORRECT_PASSWORD": "Le mot de passe saisi est incorrect",
+        "ERROR": "Une erreur s'est produite",
+        "BACK": "Retour",
+        "BETWEEN_THE": "Entre le",
+        "AND_THE": "Et le",
+        "EXCEL_EXPORTATION": "Exporter le résultat en Excel",
+        "CLOSE": "Fermer",
+        "MESSAGE_REGISTRATION_SUCCESS": "Opération effectuée avec succès",
+        "MESSAGE_ENREGISTREMENT_EXIST": "Cet enregistrement existe déjà",
+        "REFRESH": "Vider les champs",
+        "CONFIRM": "confirmer",
+        "YES": "Oui",
+        "NO": "Non",
+        "TITLE": "Gestion électronique de conversion des documents",
+        "COPYRIGTH": "Copyright © DXC 2022"
+    },
+    "LOGIN": {
+        "USERNAME": "Nom d'utilisateur",
+        "CONNEXION": "Connexion",
+        "PASSWORD": "Mot de passe",
+        "CONNECT": "Se connecter"
+    },
+    "MENU": {
+        "PROFIL": "Mon profil",
+        "ADMINISTRATOR": "Administrateur",
+        "USER": "Utilisateur",
+        "DECONNEXION": "Déconnexion"
+    },
+    "SIDEBAR": {
+        "HOME": "Home",
+        "ADMINISTRATION": "Administration",
+        "USER": "Utilisateurs",
+        "ROLE": "Rôles",
+        "SETTINGS": "Paramètres",
+        "DOCUMENTS_FUND": "Fonds Documentaire"
+    },
+    "HOME": {
+        "TITLE": "Home"
+    },
+    "TRANSACTION": {
+        "TITLE": "Transaction"
+    },
+    "USER": {
+        "TITLE": "Utilisateurs",
+        "ADD": "Ajouter un utilisateur",
+        "MODIFICATION": "Modifier un utilisateur",
+        "AUTHENTIFICATION_TYPE": "Type utilisateur",
+        "APPLICATION": "Applicatif",
+        "LDAP": "LDAP",
+        "FIRSTNAME": "Prénom",
+        "LASTNAME": "Nom",
+        "EMAIL": "Email",
+        "LOGIN": "Login",
+        "ROLE": "Rôle(s)",
+        "ROLE_NAME": "Nom du rôle",
+        "ACCESS_RIGHTS": "Droits d'accès",
+        "PROFIL": "Profil",
+        "ADMINISTRATOR": "Administrateur",
+        "USER": "Utilisateur",
+        "STATUT": "Statut",
+        "ACTIVE": "Activé",
+        "DESACTIVE": "Désactivé",
+        "PASSWORD": "Mot de passe",
+        "CONFIRMATION_PASSWORD": "Confirmation du mot de passe",
+        "CHAMP_EMAIL_VIDE": "Champ email est vide",
+        "EMAIL_INVALIDE": "Email invalide",
+        "PASSWORD_INVALIDE": "Le mot de passe doit contenir au minimum 8 caractères dont : 1 majuscule,1 minuscule, 1 lastNamebre et 5 caractères",
+        "CONFIRMATION_ERROR": "Les mots de passes ne sont pas identiques"
+    },
+    "ROLE": {
+        "TITLE": "Rôles",
+        "ADD": "Ajouter un rôle",
+        "MODIFICATION": "Modifier un rôle",
+        "LABEL": "Libellé",
+        "ACCES": "Accès"
+    },
+    "FOND_DOCUMENT":{
+        "TITLE": "Fonds Documentaire",
+        "ID": "Identifiant",
+        "ADD": "Ajouter un fond Documentaire",
+        "MODIFICATION": "Modifier un fond Documentaire",
+        "LABEL": "Libellé",
+        "NAME": "Nom",
+        "CREATED_AT": "Date de création",
+        "UPDATED_AT": "Date de modification",
+        "CONTENT_TYPE": "Type de contenu",
+        "ACCES": "Accès"
+    },
+    "ADDITIONAL_FEILDS":{
+        "LABEL_FR":"Libellé Fr",
+        "LABEL_AR":"Libellé Ar",
+        "LABEL_EN":"Libellé En",
+        "LABEL_ES":"Libellé Es",
+        "TITLE":"Champs Complémentaire",
+        "ADD":"Ajouter",
+        "ACTION":"Actions",
+        "MODIFICATION": "Modifier un fond Documentaire"
+    },
+    "SETTINGS": {
+        "TITLE": "Paramètres",
+        "DETAIL": "Détail du paramètre",
+        "MODIFICATION": "Modifier un paramètre",
+        "LABEL": "Libellé",
+        "TYPE": "Type",
+        "VALUE": "Valeur"
+    },
+    "PROFILE": {
+        "PROFILE": "Profil",
+        "CHANGE_ADRESS_EMAIL": "Changement de mon adresse email",
+        "EMAIL": "Email",
+        "ENTER_ACTUEL_PASSWORD": "Mot de passe actuel",
+        "SAVE": "Enregistrer",
+        "CHANGE_PASSWORD": "Changement de mon mot de passe",
+        "NO_IDENTICAL_PASSWORD": "Les mots de passe ne sont pas identiques",
+        "ENTER_NEW_PASSWORD": "Nouveau mot de passe",
+        "CONFIRM_NEW_PASSWORD": "Confirmation du nouveau mot de passe"
+    },
+    "INACTIVITY": {
+        "EXPIRATION": "Vous serez déconnecté dans ",
+        "SECONDS": " secondes, Veuillez bouger la souris pour continuer la navigation"
+    },
+    "processing": "Traitement en cours...",
+    "search": "Rechercher&nbsp;:",
+    "lengthMenu": "Afficher _MENU_ &eacute;l&eacute;ments",
+    "info": "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+    "infoEmpty": "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+    "infoFiltered": "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+    "infoPostFix": "",
+    "loadingRecords": "Chargement en cours...",
+    "zeroRecords": "Aucun &eacute;l&eacute;ment &agrave; afficher",
+    "emptyTable": "Aucune donnée disponible dans le tableau",
+    "paginate": {
+        "first": "<<",
+        "previous": "<",
+        "next": ">",
+        "last": ">>"
+    },
+    "aria": {
+        "sortAscending": ": activer pour trier la colonne par ordre croissant",
+        "sortDescending": ": activer pour trier la colonne par ordre décroissant"
+    }
+}

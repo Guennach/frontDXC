@@ -1,0 +1,35 @@
+<div class="pb-2 pt-2 mb-4 border-bottom">
+    <p class="h2 mb-0"><i class="fa fa-lock"></i> {{ (role?.id ? 'ROLE.MODIFICATION' : 'ROLE.ADD') | translate }}</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12 p-0">
+        <form class="form-horizontal" #form="ngForm">
+            <div class="form-group col-sm-12">
+                <span class="border-lable-flt">
+
+          <label class="control-label">{{ 'ROLE.LABEL' | translate }} : </label>
+        </span>
+                <input type="text" class="form-control text-left" name="label" [(ngModel)]="role.label" pattern="^(\S+.*)+$" required ngModel>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <span class="border-lable-flt">
+          <label class="control-label" for="label-lio">{{ 'ROLE.ACCES' | translate }} :
+          </label>
+        </span>
+                <select class="form-control" name="acces" multiple [(ngModel)]="role.acces" required ngModel data-max-options="3" [compareWith]="compareAcces">
+          <option *ngFor="let acces of accesList" [ngValue]="acces">{{acces.label}}</option>
+        </select>
+            </div>
+
+            <div class="form-group col-sm-12 text-right">
+                <button type="button" class="btn btn-danger mr-1" (click)="cancel()">
+          {{ 'GLOBAL.CANCEL' | translate }}</button>
+                <button type="button" class="btn btn-success" type="submit" [disabled]="!form.valid" (click)="save()">
+          {{'GLOBAL.SAVE' | translate }}
+        </button>
+            </div>
+        </form>
+    </div>
+</div>

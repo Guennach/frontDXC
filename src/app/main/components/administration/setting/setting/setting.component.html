@@ -1,0 +1,41 @@
+<div class="pb-2 pt-2 mb-4 border-bottom">
+    <p class="h2 mb-0"><i class="fa fa-cog"></i> {{ (!detail? 'SETTINGS.MODIFICATION' : 'SETTINGS.DETAIL') | translate }}</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12 p-0">
+        <form class="form-horizontal" #form="ngForm">
+
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label class="control-label" for="label-lio">{{ 'SETTINGS.LABEL' | translate }} :
+                    </label>
+                </span>
+                <input type="text" class="form-control" name="label" id="label-login" placeholder="" required autofocus [(ngModel)]="setting.label" pattern="^(\S+.*)+$" disabled ngModel>
+
+            </div>
+
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label class="control-label" for="label-name">{{ 'SETTINGS.TYPE' | translate }} : </label>
+                </span>
+                <input type="text" class="form-control" name="type" id="label-login" placeholder=" " required autofocus [(ngModel)]="setting.labelType" pattern="^(\S+.*)+$" disabled ngModel>
+
+            </div>
+
+            <div class="form-group col-sm-12 ">
+                <span class="border-lable-flt">
+                    <label for="label-name">{{ 'SETTINGS.VALUE' | translate }} : </label>
+                </span>
+                <input type="text" class="form-control" name="value" id="label-login" required autofocus [(ngModel)]="setting.value" pattern="^(\S+.*)+$" required [disabled]="detail" ngModel>
+
+            </div>
+            <div class="form-group col-sm-12 text-right">
+                <button type="button" class="btn btn-danger mr-1" (click)="cancel()">
+                    {{ 'GLOBAL.CANCEL' | translate }}</button>
+                <button *ngIf="!detail" type="submit" (click)="save()" class="btn btn-success" disabled="!form.valid ">{{ 'GLOBAL.SAVE' | translate }}</button>
+
+            </div>
+        </form>
+    </div>
+</div>
