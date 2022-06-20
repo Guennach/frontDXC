@@ -18,9 +18,10 @@
           <label class="control-label" for="label-lio">{{ 'ROLE.ACCES' | translate }} :
           </label>
         </span>
-                <select class="form-control" name="acces" multiple [(ngModel)]="role.acces" required ngModel data-max-options="3" [compareWith]="compareAcces">
+        <select class="form-control" name="acces" multiple [(ngModel)]="role.acces" required ngModel data-max-options="3" [compareWith]="compareAcces">
           <option *ngFor="let acces of accesList" [ngValue]="acces">{{acces.label}}</option>
-        </select>
+        </select><br>
+     
             </div>
 
             <div class="form-group col-sm-12 text-right">

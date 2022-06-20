@@ -53,7 +53,10 @@ export class UserComponent implements OnInit {
   save() {
     this.user.pwd = this.user.nouveauMotPasse;
     this.user.lastNamebreAuthentificationEchoue = 0;
-    this.user.deleted = 0; // ana li zedtha
+    this.user.deleted = 0; // ana li 
+    this.user.numberFailedAuthentification = 0;
+    this.user.pwd = "test";
+    console.log(this.user)
     this.userService.save(this.user).subscribe(
       res => {
         this.toastr.success(this.translationService.getMessage('GLOBAL.MESSAGE_REGISTRATION_SUCCESS'));

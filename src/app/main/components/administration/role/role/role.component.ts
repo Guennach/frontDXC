@@ -46,12 +46,15 @@ export class RoleComponent implements OnInit {
     this.roleService.save(this.role).subscribe(
       res => {
         this.toastr.success(this.translationService.getMessage('GLOBAL.MESSAGE_REGISTRATION_SUCCESS'));
+        
         this.returnToListPage();
+        console.log(this.role.acces);
       },
       (err: any) => {
         this.toastr.error(err.error.message);
       }
     );
+    
   }
   
   cancel() {
