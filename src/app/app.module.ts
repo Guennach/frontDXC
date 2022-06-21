@@ -9,21 +9,18 @@ import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
 import * as moment from 'moment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 moment.locale('fr');
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http,'./assets/i18n/','.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -46,4 +43,5 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -12,6 +12,7 @@ const appRoutes: Routes = [
             { path: 'home', loadChildren: () => import('src/app/main/components/home/home.module').then(m => m.HomeModule)},
             { path: 'users', loadChildren: () => import('src/app/main/components/administration/user/user.module').then(m => m.UserModule)},
             { path: 'users_clone', loadChildren: () => import('src/app/main/components/administration/user_clone/user.module').then(m => m.UserModule)},
+            { path: 'excelsheet', loadChildren: () => import('src/app/main/components/administration/excelsheet/excelsheet.module').then(m => m.HomeModule)},
             { path: 'roles', loadChildren: () => import('src/app/main/components/administration/role/role.module').then(m => m.RoleModule)},
             { path: 'profil', loadChildren: () => import('src/app/main/components/profil/profil.module').then(m => m.ProfilModule)},
             { path: 'settings', loadChildren: () => import('src/app/main/components/administration/setting/setting.module').then(m => m.SettingModule)},

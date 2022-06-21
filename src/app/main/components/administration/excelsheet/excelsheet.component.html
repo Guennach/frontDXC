@@ -1,0 +1,23 @@
+<br><input type="file" (change)="onFileChange($event)" multiple="false" />
+<div class="pb-2 pt-2 mb-4 border-bottom">
+    <p class="h2 mb-0"><i class="fa fas fa-users"></i> Table data</p>
+</div>
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <table class="table table-striped table-bordered"
+            style="width:100%">
+            <tbody>
+                <tr *ngFor="let row of data">
+                    <td *ngFor="let cell of row">
+                            {{cell}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<button (click)="downloadFile($event)">export</button>
+
