@@ -40,7 +40,6 @@ export class ExcelsheetComponent implements OnInit {
     };
 
     reader.readAsBinaryString(target.files[0]);
-    console.log(this.data);
   }
 
   downloadFile(evt: any) {
@@ -64,6 +63,28 @@ export class ExcelsheetComponent implements OnInit {
     a.click();
     window.URL.revokeObjectURL(url);
     a.remove();
+  }
+  name = 'Angular';
+  demo;
+  demo1;
+
+  Swap(data,demo,demo1)
+  {
+    const temp = data[demo]; // variable temp
+    data[demo] = data[demo1];
+    data[demo1] = temp;
+  }
+
+  onSwap(demo,demo1)
+  {
+    this.data.forEach(data=> { // loop on JSON
+      for(let d in data){ // loop on array
+        if(d == demo) // d == index
+        {
+          this.Swap(data,demo,demo1) // data == array 
+        }
+      }
+    });
   }
 
 }
