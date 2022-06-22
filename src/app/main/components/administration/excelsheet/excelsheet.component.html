@@ -20,7 +20,22 @@
 </div>
 
 <button (click)="downloadFile($event)">export</button>
+<select name="data1" id="data1" [(ngModel)]="demo" >
+    <option [ngValue]="null" disabled>Select Country</option>
 
-<input type="text" [(ngModel)]="demo" >
-<input type="text" [(ngModel)]="demo1" >
+    <option *ngFor="let row of datacb; let idx = index" value="{{ idx }}">
+          {{ row }}
+    </option>
+</select>
+<select name="data1" id="data1" [(ngModel)]="demo1">
+    <option [ngValue]="null" disabled [selected]>Select Country</option>
+    <option *ngFor="let row of datacb; let idx = index" value="{{ idx }}">
+          {{ row }}
+    </option>
+</select>
+
+
+
+<!-- <input type="text" [(ngModel)]="demo" >
+<input type="text" [(ngModel)]="demo1" > -->
 <button (click)="onSwap(demo,demo1)">Swap</button>

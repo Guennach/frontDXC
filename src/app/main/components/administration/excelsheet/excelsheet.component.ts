@@ -9,9 +9,11 @@ import * as XLSX from 'xlsx';
 export class ExcelsheetComponent implements OnInit {
 
   data: [][] = [];
+  datacb : [] = [];
   constructor() { }
 
   ngOnInit(): void {
+    this.demo = this.demo[0]
   }
   onFileChange(evt: any) {
     const target : DataTransfer =  <DataTransfer>(evt.target);
@@ -29,14 +31,20 @@ export class ExcelsheetComponent implements OnInit {
 
       const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
-      console.log(ws);
+     // console.log(ws);
 
       this.data = (XLSX.utils.sheet_to_json(ws, { header: 1 }));
 
-      console.log(this.data);
+      //console.log(this.data);
 
       let x = this.data.slice(1);
-      console.log(x);
+      //console.log(x);
+
+      //Fill up the comboBox's
+        for(let d in this.data[0]) // Target in the first index of data variable 'data[0] = first row'
+        {
+          this.datacb[d] = this.data[0][d]; // => loop over the data in the array in first row [0][d] => 'd' gonna increment 
+        }
     };
 
     reader.readAsBinaryString(target.files[0]);
@@ -75,13 +83,22 @@ export class ExcelsheetComponent implements OnInit {
     data[demo1] = temp;
   }
 
+
   onSwap(demo,demo1)
   {
     this.data.forEach(data=> { // loop on JSON
       for(let d in data){ // loop on array
-        if(d == demo) // d == index
+        
+        if(d == (demo)) // d == index
         {
+          console.log(d)
           this.Swap(data,demo,demo1) // data == array 
+          //Fill up the comboBox's again tp syncho the data
+          this.datacb = [];
+          for(let d in this.data[0]) // Target in the first index of data variable 'data[0] = first row'
+          {
+            this.datacb[d] = this.data[0][d]; // => loop over the data in the array in first row [0][d] => 'd' gonna increment 
+          }
         }
       }
     });
