@@ -10,6 +10,9 @@ export class ExcelsheetComponent implements OnInit {
 
   data: [][] = [];
   datacb : [] = [];
+  rapportdata : [] = [];
+  rapportdatacb2 : [] = [];
+  count : 0 = 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -45,6 +48,13 @@ export class ExcelsheetComponent implements OnInit {
         {
           this.datacb[d] = this.data[0][d]; // => loop over the data in the array in first row [0][d] => 'd' gonna increment 
         }
+
+        
+      //Fill up the comboBox's
+      for(let d in this.data[0]) // Target in the first index of data variable 'data[0] = first row'
+      {
+        this.rapportdata[d] = this.data[0][d]; // => loop over the data in the array in first row [0][d] => 'd' gonna increment 
+      }
     };
 
     reader.readAsBinaryString(target.files[0]);
@@ -104,5 +114,55 @@ export class ExcelsheetComponent implements OnInit {
     });
   }
 
+  rapport;
+  rapport1;
+
+  getIndex(value : string)
+  {
+    for(let d in this.data[0])
+    {
+      if (value == this.data[0][d])
+        return d;
+    }
+    return 0;
+  }
+  FillUpData(value : string)
+  {
+    let count = 0;
+    this.rapportdatacb2 = [];
+    this.data.forEach(data=>{
+      count++;
+      for (let d in data)
+      {
+        if(d == this.getIndex(value) && count > 1)
+          this.rapportdatacb2.push(data[d]);
+      }
+    })
+  }
+
+  Counter(value : any)
+  {
+    this.count = 0;
+    let counter = 0;
+    for(let i in this.rapportdatacb2)
+    {
+      if(this.rapportdatacb2[value] == this.rapportdatacb2[i])
+      {
+        this.count++;
+      }
+    }
+    console.log(counter)
+  }
+
+  words;
+ /* wordsCounter(words : any){
+    this.data.forEach(data=>{
+      for(let d in data)
+      {
+        let dd = data[d];
+        console.log(dd!->length);
+      }
+    })
+  }*/
 }
 

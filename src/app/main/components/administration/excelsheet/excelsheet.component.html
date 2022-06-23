@@ -20,22 +20,52 @@
 </div>
 
 <button (click)="downloadFile($event)">export</button>
-<select name="data1" id="data1" [(ngModel)]="demo" >
-    <option [ngValue]="null" disabled>Select Country</option>
 
-    <option *ngFor="let row of datacb; let idx = index" value="{{ idx }}">
-          {{ row }}
-    </option>
-</select>
-<select name="data1" id="data1" [(ngModel)]="demo1">
-    <option [ngValue]="null" disabled [selected]>Select Country</option>
-    <option *ngFor="let row of datacb; let idx = index" value="{{ idx }}">
-          {{ row }}
-    </option>
-</select>
-
-
+<div class="row">
+    <div class="col-2 form-group">
+        <select class="form-control" id="exampleFormControlSelect1" name="data1"  [(ngModel)]="demo">
+            <label for="exampleFormControlSelect1">Example select</label>
+            <option *ngFor="let row of datacb; let idx = index" value="{{ idx }}">
+                  {{ row }}
+            </option>
+        </select>
+    </div>
+    
+    <div class="col-2 form-group">
+        <select class="form-control" id="exampleFormControlSelect1" name="data1"  [(ngModel)]="demo1">
+            <label for="exampleFormControlSelect1">Example select</label>
+            <option *ngFor="let row of datacb; let idx = index" value="{{ idx }}">
+                  {{ row }}
+            </option>
+        </select>
+    </div>
+</div>
 
 <!-- <input type="text" [(ngModel)]="demo" >
 <input type="text" [(ngModel)]="demo1" > -->
 <button (click)="onSwap(demo,demo1)">Swap</button>
+
+<!-- rapport container -->
+<div class="container mb-3 align-items-center">
+    <div>
+    <label class="p-3" for="cb1">Choix du colonne</label>
+    <select #test class="form-select" id="cb1" aria-label="Default select example" [(ngModel)]="rapport" (change)="FillUpData(test.value)">
+        <option *ngFor="let row of rapportdata; let idx = index" value="{{ idx }}">
+            {{ row }}
+      </option>
+      </select>
+    </div>
+    <br>
+    <div>
+      <label class="p-3" for="cb2">Choix de celule</label>
+    <select class="form-select" id="cb2" aria-label="Default select example" [(ngModel)]="rapport1">
+        <option *ngFor="let row of rapportdatacb2; let idx = index" value="{{ idx }}">
+            {{ row }}
+      </option>
+      </select>
+    </div>
+    <button (click)="Counter(rapport1)">count</button>
+    <h6>Colonne " {{ rapport }} " , cellule " {{ rapportdatacb2[rapport1] }} " repeated : {{ count }}</h6>
+</div>
+
+

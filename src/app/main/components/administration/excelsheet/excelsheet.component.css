@@ -1,0 +1,15 @@
+.cb{
+    background-color: rgba(86, 11, 156, 0.4);
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    border:0px;
+   outline:0px;
+}
+.cb:hover{
+    transition: all 0.5s ease-in-out;
+   outline: none;
+   background-color: blueviolet;
+}
+
