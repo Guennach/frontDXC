@@ -122,21 +122,28 @@ export class ExcelsheetComponent implements OnInit {
   {
     for(let d in this.data[0])
     {
-      if (value == this.data[0][d])
+      if (value == d)
+      {
+        console.log(value)
         return d;
+      }
     }
+    console.log(value);
     return 0;
   }
   FillUpData(value : string)
   {
-    let count = 0;
+    let counter = 0;
     this.rapportdatacb2 = [];
     this.data.forEach(data=>{
-      count++;
+      counter++;
       for (let d in data)
       {
-        if(d == this.getIndex(value) && count > 1)
+        if(d == this.getIndex(value) && counter > 1){
           this.rapportdatacb2.push(data[d]);
+          console.log(d)
+          console.log(data[d])
+        }
       }
     })
   }
@@ -150,11 +157,13 @@ export class ExcelsheetComponent implements OnInit {
       if(this.rapportdatacb2[value] == this.rapportdatacb2[i])
       {
         this.count++;
-        this.rapportString = "Colonne "+ this.rapport  +" , cellule " +this.rapportdatacb2[this.rapport1] + " repeated : "+ this.count;
+        this.rapportString += "\r\nColonne "+ this.rapport  +" , cellule " +this.rapportdatacb2[this.rapport1] + " repeated : "+ this.count+"\r\n";
+        //idx
+        // data
+        //if (tempData = data) count > temp => temp = count 
       }
     }
     console.log(counter)
-    this.downloadtxt(evt);
   }
 
   downloadtxt(evt: any) {
