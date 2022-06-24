@@ -13,6 +13,7 @@ export class ExcelsheetComponent implements OnInit {
   rapportdata : [] = [];
   rapportdatacb2 : [] = [];
   count : 0 = 0;
+  rapportString : String = "";
   constructor() { }
 
   ngOnInit(): void {
@@ -140,7 +141,7 @@ export class ExcelsheetComponent implements OnInit {
     })
   }
 
-  Counter(value : any)
+  Counter(value : any, evt :any)
   {
     this.count = 0;
     let counter = 0;
@@ -149,20 +150,39 @@ export class ExcelsheetComponent implements OnInit {
       if(this.rapportdatacb2[value] == this.rapportdatacb2[i])
       {
         this.count++;
+        this.rapportString = "Colonne "+ this.rapport  +" , cellule " +this.rapportdatacb2[this.rapport1] + " repeated : "+ this.count;
       }
     }
     console.log(counter)
+    this.downloadtxt(evt);
   }
 
+  downloadtxt(evt: any) {
+    const data = this.data;
+    const replacer = (key, value) => (value === null ? '' : value); // specify how you want to handle null values here
+    const header = Object.keys(data[0]);
+    const csv = this.rapportString;
+    //unshift(header.join(','));
+    //const csvArray = csv.join('\r\n');
+    const str2blob = txt => new Blob([txt]);
+
+  console.log(str2blob(this.rapportString))
+    const a = document.createElement('a');
+    const blob = str2blob(this.rapportString)
+    console.log(blob)
+    const url = window.URL.createObjectURL(blob);
+  
+    a.href = url;
+    a.download = 'myFile.txt';
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove();
+  }
+
+  
   words;
- /* wordsCounter(words : any){
-    this.data.forEach(data=>{
-      for(let d in data)
-      {
-        let dd = data[d];
-        console.log(dd!->length);
-      }
-    })
-  }*/
+
+
+
 }
 
